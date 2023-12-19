@@ -51,8 +51,5 @@ const deleteUser = (req, res, next) => {
 };
 
 
-exports.getUsers = getUsers;
-exports.addUser = addUser;
-exports.updateUser = updateUser;
-exports.deleteUser = deleteUser;
+
 
