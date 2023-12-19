@@ -1,4 +1,4 @@
-//import app
+//import app 
 //const app = require('./app');
 
 const express =require('express');
@@ -34,5 +34,6 @@ connect();
 const server = app.listen(3001, host, () => {
     console.log(`Node server is listning to ${server.address().port}`)
 });
+
 
 app.use('/api', router);
