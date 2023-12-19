@@ -1,22 +1,58 @@
-const users = [
-    {
-        id: 1,
-        name: 'Himan',
-    },
-    {
-        id:2,
-        name: 'Liyanage',
-    },
-];
+const User = require('./model');
 
-const getUsers = (cb) => {
-    cb(users);
+
+const getUsers = (req, res, next) => {
+    User.find()
+        .then(response => {         //promissers
+            res.json({ response})
+        })
+        .catch(error => {
+            res.json({ error })
+        })
 };
 
-const getUseById = (id, cb) => {
-    const user = users.find(user => user.id == id);
-    cb(user);
+
+const addUser = (req, res, next) => {
+    const user = new User ({
+        id: req.body.id,
+        name: req.body.name,
+    })
+    user.save()
+        .then(response => {         //promissers
+            res.json({ response})
+        })
+        .catch(error => {
+            res.json({ error })
+        })
 };
+
+
+const updateUser = (req, res, next) => {
+    const {id, name} = req.body;    //d structer
+    User.updateOne({ id: id}, {$set: { name: name }})
+        .then(response => {         //promissers
+            res.json({ response})
+        })
+        .catch(error => {
+            res.json({ message: error})
+        })
+};
+
+
+const deleteUser = (req, res, next) => {
+    const id = req.body.id;
+    User.deleteOne({ id: id})
+        .then(response => {         //promissers
+            res.json({ response})
+        })
+        .catch(error => {
+            res.json({ message: error})
+        })
+};
+
 
 exports.getUsers = getUsers;
-exports.getUseById = getUseById;
+exports.addUser = addUser;
+exports.updateUser = updateUser;
+exports.deleteUser = deleteUser;
+
