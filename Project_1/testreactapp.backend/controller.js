@@ -40,8 +40,8 @@ const updateUser = (req, res, next) => {
 
 
 const deleteUser = (req, res, next) => {
-    const id = req.body.id;
-    User.deleteOne({ id: id})
+    const {id, name} = req.body;
+    User.deleteOne({ id: id}, {$set: { name: name }})
         .then(response => {         //promissers
             res.json({ response})
         })
