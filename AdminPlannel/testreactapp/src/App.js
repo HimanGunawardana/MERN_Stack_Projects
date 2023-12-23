@@ -18,7 +18,11 @@ function App() {
       
     // </div>
 
-    <Dashboard/>
+    <div>
+      <Dashboard/>
+      <Login/>
+      <Register />
+    </div>
   );
 }
 
