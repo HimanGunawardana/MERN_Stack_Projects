@@ -19,8 +19,8 @@ function App() {
     // </div>
 
     <div>
-      <Dashboard/>
-      <Login/>
+      <Dashboard />
+      <Login />
       <Register />
     </div>
   );
