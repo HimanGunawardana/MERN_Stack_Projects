@@ -1,0 +1,11 @@
+.auth-wrapper{
+    background: linear-gradient(#282c34, #000000);
+}
+.auth-wrapper .auth-inner{
+    background: linear-gradient(#282c34, #000000);
+    color: aliceblue;
+}
+.mb-3{
+    color: #ffffff;
+    font-family: sans-serif;
+}
